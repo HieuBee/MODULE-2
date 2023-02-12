@@ -1,45 +1,42 @@
 package resizeable;
 
-public class Square implements IResizeable{
-    private double length, wight;
+public class Square extends Shape implements IResizeable{
+    private double edge;
 
     public Square() {
     }
 
-    public Square(double length, double wight) {
-        this.length = length;
-        this.wight = wight;
+    public Square(String color, boolean filled, double edge) {
+        super(color, filled);
+        this.edge = edge;
     }
 
-    public double getLength() {
-        return length;
+    public Square(double edge) {
+        this.edge = edge;
     }
 
-    public void setLength(double length) {
-        this.length = length;
+    public double getEdge() {
+        return edge;
     }
 
-    public double getWight() {
-        return wight;
-    }
-
-    public void setWight(double wight) {
-        this.wight = wight;
+    public void setEdge(double edge) {
+        this.edge = edge;
     }
 
     @Override
     public String toString() {
-        return "Rectangle{" +
-                "length=" + length +
-                ", wight=" + wight +
+        return "Square{" +
+                "edge=" + getEdge() +
                 '}';
     }
 
+    public double getArea(){
+        return this.edge * 4;
+    }
     @Override
     public void resize(double percent) {
-        double beforeS = (length + wight) * 2;
-        System.out.println("Before square area: " + beforeS);
-        double afterS = beforeS + (beforeS * (percent / 100));
-        System.out.println("After square area: " + afterS);
+        System.out.println("Before square area: " + getArea());
+        this.edge *= percent / 100;
+        System.out.println("After square area: " + getArea());
     }
 }

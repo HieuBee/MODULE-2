@@ -1,9 +1,15 @@
 package resizeable;
 
-public class Rectangle implements IResizeable{
+public class Rectangle extends Shape implements IResizeable{
     private double length, wight;
 
     public Rectangle() {
+    }
+
+    public Rectangle(String color, boolean filled, double length, double wight) {
+        super(color, filled);
+        this.length = length;
+        this.wight = wight;
     }
 
     public Rectangle(double length, double wight) {
@@ -27,20 +33,23 @@ public class Rectangle implements IResizeable{
         this.wight = wight;
     }
 
+    public double getArea() {
+        return (this.wight + this.length) * 2;
+    }
+
     @Override
     public String toString() {
         return "Rectangle{" +
-                "length=" + length +
-                ", wight=" + wight +
+                "length=" + getLength() +
+                ", wight=" + getWight() +
                 '}';
     }
 
     @Override
     public void resize(double percent) {
-        double beforeS = (length + wight) * 2;
-        System.out.println("Before rectangle area: " + beforeS);
-        double afterS = beforeS + (beforeS * (percent / 100));
-        System.out.println("After rectangle area: " + afterS);
-        System.out.println("------------------------");
+        System.out.println("Before rectangle area: " + getArea());
+        this.length *= percent / 100;
+        this.wight *= percent / 100;
+        System.out.println("After rectangle area: " + getArea());
     }
 }

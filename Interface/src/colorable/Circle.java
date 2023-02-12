@@ -1,9 +1,10 @@
-package resizeable;
+package colorable;
 
-public class Circle extends Shape implements IResizeable{
+public class Circle extends Shape{
     private double radius;
 
     public Circle() {
+
     }
 
     public Circle(double radius) {
@@ -23,20 +24,16 @@ public class Circle extends Shape implements IResizeable{
         this.radius = radius;
     }
 
-    public double getArea() {
-        return this.radius * this.radius * Math.PI;
-    }
     @Override
-    public String toString() {
-        return "Circle{" +
-                "radius=" + getRadius() +
-                '}';
+    public void getArea() {
+        double S = Math.PI * radius * radius;
+        System.out.println("Area circle: " + S);
     }
 
     @Override
-    public void resize(double percent) {
-        System.out.println("Before circle area: " + getArea());
-        this.radius *= percent / 100;
-        System.out.println("After circle area: " + getArea());
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
     }
 }
