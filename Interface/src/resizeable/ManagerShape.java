@@ -10,9 +10,8 @@ public class ManagerShape {
 
         for (Shape shape : shapes) {
             double percent = 100 * Math.random();
-            shape.resize (percent);
-            System.out.println(shape);
-            System.out.println("------------------------");
+            shape.resize(percent);
+            System.out.println(shape.getArea());
         }
     }
 }

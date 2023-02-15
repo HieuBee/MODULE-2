@@ -1,6 +1,6 @@
 package resizeable;
 
-public class Shape {
+public abstract class Shape {
     private String color;
     private boolean filled;
 
@@ -29,6 +29,8 @@ public class Shape {
         this.filled = filled;
     }
 
+    public abstract double getArea();
+
     @Override
     public String toString() {
         return "Shape{" +
@@ -37,7 +39,5 @@ public class Shape {
                 '}';
     }
 
-    public void resize(double percent) {
-
-    }
+    public abstract void resize(double percent);
 }
